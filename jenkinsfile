@@ -1,0 +1,43 @@
+pipeline {
+   agent any
+   environment {
+        INSTAGRAM_DFBASTIDAS="@dfbastidas"
+   }
+    stages {
+       stage("Saludo 1"){
+            steps {
+                echo "Hola desde Saludo 1 "
+            }
+         }
+       stage("Saludo 2"){
+            steps {
+                echo "Hola desde Saludo 1 "
+                echo "Hola desde Saludo 2 "
+            }
+         }
+       stage("Imprimir Variables de Entorno"){
+            steps {
+                echo "${env.INSTAGRAM_DFBASTIDAS}"
+                echo "${INSTAGRAM_DFBASTIDAS}"
+                echo "$INSTAGRAM_DFBASTIDAS"
+                echo "===================================="
+                sh "echo ${env.INSTAGRAM_DFBASTIDAS}"
+                sh "echo ${INSTAGRAM_DFBASTIDAS}"
+                sh "echo $INSTAGRAM_DFBASTIDAS"
+                echo "===================================="
+                }    
+       }
+        stage("Imprimir Variables de Entorno definidas en System"){
+            steps {
+                echo "${env.INSTAGRAM}"
+                echo "${INSTAGRAM}"
+                echo "$INSTAGRAM"
+                
+                sh "echo ${env.INSTAGRAM}"
+                sh "echo ${INSTAGRAM}"
+                sh """echo $INSTAGRAM"""
+                
+            }
+        }
+    }
+}
