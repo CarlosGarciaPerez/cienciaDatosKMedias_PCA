@@ -27,17 +27,6 @@ pipeline {
                 echo "===================================="
                 }    
        }
-        stage("Imprimir Variables de Entorno definidas en System"){
-            steps {
-                echo "${env.INSTAGRAM}"
-                echo "${INSTAGRAM}"
-                echo "$INSTAGRAM"
-                
-                sh "echo ${env.INSTAGRAM}"
-                sh "echo ${INSTAGRAM}"
-                sh """echo $INSTAGRAM"""
-                
-            }
-        }
+       
     }
 }
